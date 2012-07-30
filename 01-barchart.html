@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<html>
+  <head>
+    <title>
+      Barchart
+    </title>
+    <script type='text/javascript' src='/d3/d3.v2.min.js'>
+    </script>
+    <style type='text/css'>
+.chart rect {
+  stroke: white;
+  fill: SteelBlue;
+}
+    </style>
+  </head>
+  <body>
+    <div id="placeholder">
+    </div>
+
+    <script type='text/javascript'>
+var data = [820, 883, 903, 836, 915, 981, 892, 761, 858, 757, 363];
+var chart = d3.select("#placeholder").append("svg")
+  .attr ("class", "chart")
+  .attr ("width", 1000)
+  .attr ("height", 20 * data.length);
+
+chart.selectAll ("rect")
+  .data (data)
+  .enter ()
+  .append ("rect")
+  .attr ("width", function (d) {
+    return d;
+  })
+  .attr ("height", 20)
+  .attr ("y", function (d, i) {
+    return i * 20;
+  });
+
+chart.selectAll ("text")
+  .data (data)
+  .enter ()
+  .append ("text")
+  .text (String)
+  .attr ("x", function (d) {
+    return d;
+  })
+  .attr ("y", function (d, i) {
+    return i * 20 + 10;
+  })
+  .attr("dy", ".35em")
+  .attr("dx", "-5")
+  .attr ("text-anchor", "end");
+    </script>
+  </body>
+</html>
