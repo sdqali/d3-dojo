@@ -15,16 +15,17 @@
     </style>
   </head>
   <body>
-    <div id="placeholder">
+    <div id="barchart">
     </div>
 
     <script type='text/javascript'>
 var data = [820, 883, 903, 836, 915, 981, 892, 761, 858, 757, 363];
-var chart = d3.select("#placeholder").append("svg")
+var chart = d3.select("#barchart").append("svg")
   .attr ("class", "chart")
   .attr ("width", 1000)
   .attr ("height", 20 * data.length);
 
+// Add rectangles
 chart.selectAll ("rect")
   .data (data)
   .enter ()
@@ -37,6 +38,7 @@ chart.selectAll ("rect")
     return i * 20;
   });
 
+// Add text showing number of deaths
 chart.selectAll ("text")
   .data (data)
   .enter ()
