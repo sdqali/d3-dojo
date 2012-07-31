@@ -8,6 +8,15 @@
     <script type='text/javascript' src='/d3/d3.v2.min.js'>
     </script>
     <style type='text/css'>
+#barchart {
+    margin-left: 50px;
+    float: left;
+}
+.chart {
+    margin-left: 50px;
+    float: left;
+}
+
 .chart rect {
   stroke: white;
   fill: SteelBlue;
@@ -61,7 +70,10 @@
       .enter ()
       .append ("rect")
       .attr ("width", function (d) {
-        return xScale (d.deaths);
+        return xScale (d.deaths) - xScale(0);
+      })
+      .attr("x", function(d) {
+        return margins.left;
       })
       .attr ("height", yScale.rangeBand ())
       .attr ("y", function (d, i) {
@@ -94,7 +106,7 @@
 
     chart.append("g")
       .attr("class", "axis")
-      .attr("transform", "translate(-50," + (height - margins.bottom) + ")")
+      .attr("transform", "translate(0," + (height - margins.bottom) + ")")
       .call(xAxis);
 
     // Add y axis
@@ -105,7 +117,7 @@
 
     chart.append("g")
       .attr("class", "axis")
-      .attr("transform", "translate(" +  margins.left - 50 + ", 0)")
+      .attr("transform", "translate(" + margins.left +", 0)")
       .call(yAxis);
   });
     </script>
