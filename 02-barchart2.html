@@ -15,7 +15,7 @@
     </style>
   </head>
   <body>
-    <div id="placeholder">
+    <div id="barchart">
     </div>
 
     <script type='text/javascript'>
@@ -30,7 +30,7 @@ d3.csv ("accident_deaths.csv", function (data) {
                 bottom: 50
                 };
 
- var chart = d3.select("#placeholder").append("svg")
+ var chart = d3.select("#barchart").append("svg")
  .attr ("class", "chart")
  .attr ("width", width)
  .attr ("height", height);
