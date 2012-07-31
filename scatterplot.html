@@ -1,0 +1,47 @@
+<html>
+    <head>
+        <title>Bowling Debuts</title>
+        <script type="text/javascript" src="d3/d3.v2.js"></script>
+        <link type="text/css" rel="stylesheet" href="scatterplot.css"></link>
+    </head>
+    <body>
+      <div class="vis">
+      </div>
+      <script type="text/javascript">
+var width = 1000;
+var height = 500;
+var padding = 30;
+var colorMap = {
+  "India": "#1f77b4",
+  "Pakistan": "#637939"
+};
+
+// Draw SVG
+var svg = d3.select(".vis")
+  .append("svg")
+  .attr("width", width)
+  .attr("height", height);
+
+// Load the data and do stuff
+d3.json("bowlers.json", function(dataset) {
+  // Define xScale
+
+  // Define ySclale
+
+  // Define radiusScale
+
+  // Draw circles bound to dataset
+
+  // Add alt text
+
+  // Add xAxis
+
+  // Add yAxis
+
+  // Add xRule
+
+  // Add yRule
+});
+      </script>
+    </body>
+</html>
