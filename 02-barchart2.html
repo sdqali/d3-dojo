@@ -41,7 +41,7 @@ d3.csv ("accident_deaths.csv", function (data) {
 
   var yScale = d3.scale.ordinal ()
     .domain (data.map (function (d) {return d.year;}))
-    .rangeBands ([height - margins.bottom, margins.top]);
+    .rangeBands ([margins.top, height - margins.bottom]);
 
 // Add rectangles
   chart.selectAll ("rect")
