@@ -3,7 +3,7 @@
 <html>
   <head>
     <title>
-      Barchart with Axes
+      Barchart with Rules
     </title>
     <script type='text/javascript' src='/d3/d3.v2.min.js'>
     </script>
@@ -15,6 +15,18 @@
 .chart {
     margin-left: 50px;
     float: left;
+}
+
+.rule line {
+    stroke: #000;
+    stroke-opacity: 0.2;
+    shape-rendering: crispEdges;
+}
+
+.rule first-child line {
+    stroke: #000;
+    stroke-opacity: 0.5;
+    shape-rendering: crispEdges;
 }
 
 .chart rect {
@@ -119,6 +131,20 @@
       .attr("class", "axis")
       .attr("transform", "translate(" + margins.left +", 0)")
       .call(yAxis);
+
+    // Add y rules
+    var yRule = chart.append("g")
+    .selectAll(".rule")
+    .data(xScale.ticks(20))
+    .enter()
+    .append("g")
+    .attr("class", "rule")
+    .attr("transform", function(d) {
+        return "translate(" + xScale(d) + "," + margins.top + ")";
+    });
+
+    yRule.append("line")
+    .attr("y2", height - 2 * margins.bottom);
   });
     </script>
   </body>
