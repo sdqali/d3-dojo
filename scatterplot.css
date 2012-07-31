@@ -1,0 +1,36 @@
+.axis path,
+.axis line {
+    fill: none;
+    stroke: black;
+    shape-rendering: crispEdges;
+}
+
+.axis text {
+    font-family: sans-serif;
+    font-size: 11px;
+}
+
+.rule line {
+    stroke: #000;
+    stroke-opacity: 0.2;
+    shape-rendering: crispEdges;
+}
+
+.rule first-child line {
+    stroke: #000;
+    stroke-opacity: 0.5;
+    shape-rendering: crispEdges;
+}
+
+.vis {
+    float: left;
+}
+
+.legend {
+    float: left;
+    text-align: left;
+}
+
+.legend li {
+    list-style: none;
+}
